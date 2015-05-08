@@ -1,0 +1,203 @@
+<!DOCTYPE html>  
+<html xmlns="http://www.w3.org/1999/xhtml"  
+    xmlns:h="http://java.sun.com/jsf/html"  
+    xmlns:f="http://java.sun.com/jsf/core"  
+    xmlns:ui="http://java.sun.com/jsf/facelets"  
+    xmlns:p="http://primefaces.org/ui">  
+      
+    <h:head>  
+          
+    </h:head>  
+      
+    <h:body>  
+
+<h:commandLink>  
+            <p:graphicImage value="/images/excel.png" />  
+            <p:dataExporter type="xls" target="dataTable45" fileName="properties_#{userBean.selectedNode.name}" pageOnly="true"/>  
+        </h:commandLink>  
+  
+        <h:commandLink >  
+            <p:graphicImage value="/images/pdf.png" />  
+            <p:dataExporter type="pdf" target="dataTable45" fileName="properties_#{userBean.selectedNode.name}" pageOnly="true"/>  
+        </h:commandLink>  
+          
+        <h:commandLink>  
+            <p:graphicImage value="/images/csv.png" />  
+            <p:dataExporter type="csv" target="dataTable45" fileName="properties_#{userBean.selectedNode.name}" pageOnly="true"/>  
+        </h:commandLink>  
+          
+        <h:commandLink>  
+            <p:graphicImage value="/images/xml.png" />  
+            <p:dataExporter type="xml" target="dataTable45" fileName="properties_#{userBean.selectedNode.name}" pageOnly="true"/>  
+        </h:commandLink>  
+       <p:fieldset legend="Özellikler">
+       <p:dataTable id="dataTable45" var="serviceNode" value="#{userBean.selectedNode.parameters}" paginator="true" paginatorPosition="bottom" rows="10">
+
+					<p:column>
+						<f:facet name="header">
+							<h:outputText value="Name" />
+						</f:facet>
+						<h:outputText value="#{serviceNode.key}" />
+					</p:column>
+
+					<p:column>
+						<f:facet name="header">
+							<h:outputText value="type" />
+						</f:facet>
+						<h:outputText value="#{serviceNode.value}" />
+					</p:column>
+
+				</p:dataTable>
+            </p:fieldset>
+
+
+
+
+
+<h:commandLink>  
+            <p:graphicImage value="/images/excel.png" />  
+            <p:dataExporter type="xls" target="dataTable1" fileName="contains_#{userBean.selectedNode.name}" pageOnly="true"/>  
+        </h:commandLink>  
+  
+        <h:commandLink >  
+            <p:graphicImage value="/images/pdf.png" />  
+            <p:dataExporter type="pdf" target="dataTable1" fileName="contains_#{userBean.selectedNode.name}" pageOnly="true"/>  
+        </h:commandLink>  
+          
+        <h:commandLink>  
+            <p:graphicImage value="/images/csv.png" />  
+            <p:dataExporter type="csv" target="dataTable1" fileName="contains_#{userBean.selectedNode.name}" pageOnly="true"/>  
+        </h:commandLink>  
+          
+        <h:commandLink>  
+            <p:graphicImage value="/images/xml.png" />  
+            <p:dataExporter type="xml" target="dataTable1" fileName="contains_#{userBean.selectedNode.name}" pageOnly="true"/>  
+        </h:commandLink>  	            
+            <p:fieldset legend="Projenin İçerdiği servisler">
+	     		<p:dataTable id="dataTable1" var="serviceNode" value="#{userBean.selectedNode.containsAsList}" paginator="true" paginatorPosition="bottom" rows="10">  
+	  
+					<p:column>
+						<f:facet name="header">
+							<h:outputText value="Name" />
+						</f:facet>
+						<h:outputText value="#{serviceNode.key}" />
+					</p:column>
+
+					<p:column>
+						<f:facet name="header">
+							<h:outputText value="type" />
+						</f:facet>
+						<h:outputText value="#{serviceNode.value}" />
+					</p:column>
+	          	</p:dataTable>
+	        </p:fieldset>
+
+
+
+
+
+
+
+
+
+
+<h:commandLink>  
+            <p:graphicImage value="/images/excel.png" />  
+            <p:dataExporter type="xls" target="dataTable2" fileName="outgoing_#{userBean.selectedNode.name}" pageOnly="true"/>  
+        </h:commandLink>  
+  
+        <h:commandLink >  
+            <p:graphicImage value="/images/pdf.png" />  
+            <p:dataExporter type="pdf" target="dataTable2" fileName="outgoing_#{userBean.selectedNode.name}" pageOnly="true"/>  
+        </h:commandLink>  
+          
+        <h:commandLink>  
+            <p:graphicImage value="/images/csv.png" />  
+            <p:dataExporter type="csv" target="dataTable2" fileName="outgoing_#{userBean.selectedNode.name}" pageOnly="true"/>  
+        </h:commandLink>  
+          
+        <h:commandLink>  
+            <p:graphicImage value="/images/xml.png" />  
+            <p:dataExporter type="xml" target="dataTable2" fileName="outgoing_#{userBean.selectedNode.name}" pageOnly="true"/>  
+        </h:commandLink>  	             
+            <p:fieldset legend="Çağırdığı servisler">
+	     		<p:dataTable id="dataTable2" var="serviceNode" value="#{userBean.selectedNode.outgoingServicesAsList}" paginator="true" paginatorPosition="bottom" rows="10">  
+
+	  					<p:column>
+						<f:facet name="header">
+							<h:outputText value="Name" />
+						</f:facet>
+						<h:outputText value="#{serviceNode.endNode.name}" />
+					</p:column>
+
+					<p:column>
+						<f:facet name="header">
+							<h:outputText value="type" />
+						</f:facet>
+						<h:outputText value="#{serviceNode.endNode.type}" />
+					</p:column>
+					
+					<p:column>
+						<f:facet name="header">
+							<h:outputText value="type" />
+						</f:facet>
+						<h:outputText value="#{serviceNode.methodName}" />
+					</p:column>
+
+	          
+	          	</p:dataTable>
+	        </p:fieldset>
+
+
+
+
+
+
+
+
+
+
+<h:commandLink>  
+            <p:graphicImage value="/images/excel.png" />  
+            <p:dataExporter type="xls" target="dataTable3" fileName="incoming_#{userBean.selectedNode.name}" pageOnly="true" />  
+        </h:commandLink>  
+  
+        <h:commandLink >  
+            <p:graphicImage value="/images/pdf.png" />  
+            <p:dataExporter type="pdf" target="dataTable3" fileName="incoming_#{userBean.selectedNode.name}" pageOnly="true"/>  
+        </h:commandLink>  
+          
+        <h:commandLink>  
+            <p:graphicImage value="/images/csv.png" />  
+            <p:dataExporter type="csv" target="dataTable3" fileName="incoming_#{userBean.selectedNode.name}" pageOnly="true"/>  
+        </h:commandLink>  
+          
+        <h:commandLink>  
+            <p:graphicImage value="/images/xml.png" />  
+            <p:dataExporter type="xml" target="dataTable3" fileName="incoming_#{userBean.selectedNode.name}" pageOnly="true"/>  
+        </h:commandLink>  		        
+	        <p:fieldset legend="Çağrıldığı servisler">
+	     		<p:dataTable id="dataTable3" var="serviceNode" value="#{userBean.selectedNode.incomingServicesAsList}" paginator="true" paginatorPosition="bottom" rows="10">  
+	  
+          	 <p:column>
+						<f:facet name="header">
+							<h:outputText value="Name" />
+						</f:facet>
+						<h:outputText value="#{serviceNode.startNode.name}" />
+					</p:column>
+
+					<p:column>
+						<f:facet name="header">
+							<h:outputText value="type" />
+						</f:facet>
+						<h:outputText value="#{serviceNode.startNode.type}" />
+					</p:column>
+	          
+	          	</p:dataTable>
+	        </p:fieldset>
+  
+
+
+    </h:body>  
+      
+</html>  
